@@ -1,0 +1,87 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    
+    background-image: linear-gradient(to top, rgb(87, 90, 90), rgb(29, 29, 32));
+    color: white;
+    font-family:'Courier New', Courier, monospace;
+}
+
+#container {
+    background: linear-gradient(155deg, rgba(26, 25, 25, 0.904), rgba(255, 255, 255, 0.041));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    box-shadow: -10px -10px 20px rgb(10, 10, 10);
+}
+
+/*Website Icon*/
+#bweenIcon {
+    box-shadow: -10px -10px 20px rgb(10, 10, 10);
+    border-radius: 100px;
+}
+
+/*Slots*/
+#slots
+{
+    width: 280px;
+    height: 30vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.menuele, .slotcontainer
+{
+    width: 280px;
+}
+
+.slotcontainer
+{
+    background: linear-gradient(155deg, rgba(26, 25, 25, 0.904), rgba(255, 255, 255, 0.041));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 10px;
+    padding: 2px;
+    margin-top: 5px;
+}
+
+/* Scrolling for slots */
+::-webkit-scrollbar
+{
+    width: 10px;
+}
+
+::-webkit-scrollbar-thumb
+{
+    background: white;
+}
+
+/* Icon-links for other sites, Email & Copyright notice*/
+#socialLinks {
+    border-top: 1px grey dotted;
+}
+
+ul, li {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+    filter: brightness(50%);
+}
+
+ul, li:hover {
+    filter: brightness(100%);
+}
+
+.hyperlink {
+    text-decoration: none;
+    color: grey;
+}
+
+.hyperlink:hover {
+    color: white;
+}
