@@ -21,7 +21,7 @@ function draw(){
     defaultColours.sort(function(a,b) {return Math.random()-0.5});
 
     for (let i = 0; i< barsValues.length; i++){
-        const bw = canvas.width / 4;
+        const bw = canvas.width / 7;
         const x = i * bw; 
         barBox.fillStyle = defaultColours[i];
         const offset = 100 - barsValues[i];
@@ -34,6 +34,7 @@ function randomizeColors(){
     // create a function to re-render the bars with the same values, but only randomize the colors of the rectangles.
     //use draw somewhere around here;
     console.log("Randomize");
+    draw();
 }
 
 function sliderConstructor(index){

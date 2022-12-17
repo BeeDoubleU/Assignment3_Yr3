@@ -1,4 +1,6 @@
 body{
+    display: flex;
+    justify-content: center;
     color: white;
     background-color: rgb(33, 34, 35);
 }
