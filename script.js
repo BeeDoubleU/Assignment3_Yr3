@@ -9,30 +9,45 @@ const defaultColours = [
     '#eeeeee'
 ];
 
+let barsValuesColours = [
+    '#ffffff',
+    '#000000'
+];
+
 const canvas = document.getElementById("barBox");
 const slidersContainer = document.getElementById("slidersContainer");
 const barBox = canvas.getContext("2d");
+let captionValueText = "";
 
-let barsValues = [];
+let barsValues = [50, 50];
 
 function draw(){
 
     barBox.clearRect(0,0,500,500);
+    barBox.fillText(captionValueText, 50, 50);
+    barBox.font = "30px Arial";
     defaultColours.sort(function(a,b) {return Math.random()-0.5});
 
     for (let i = 0; i< barsValues.length; i++){
-        const bw = canvas.width / 7;
-        const x = i * bw; 
-        barBox.fillStyle = defaultColours[i];
+        const normalizedValue = barsValues[i] / 100;
+        const rectHeight = 500 * normalizedValue;
+
+        const barWidth = canvas.width / barsValues.length;
+        const x = i * barWidth;
+        barBox.fillStyle = barsValuesColours[i];
         const offset = 100 - barsValues[i];
         let rand = Math.random()*400;
-        barBox.fillRect(x,500-rand,bw,rand);
+        barBox.fillRect(x,500-rectHeight,barWidth,rectHeight);
     }
 }
 
 function randomizeColors(){
-    // create a function to re-render the bars with the same values, but only randomize the colors of the rectangles.
-    //use draw somewhere around here;
+    for (let i = 0; i < barsValuesColours.length; i++){
+        const newColourIndex = Math.floor(Math.random() * (defaultColours.length - 1));
+        const newColour = defaultColours[newColourIndex];
+        barsValuesColours[i] = newColour;
+        console.log(newColourIndex);
+    }
     console.log("Randomize");
     draw();
 }
@@ -46,7 +61,9 @@ function sliderConstructor(index){
 
 function onCaptionChange(){
     const captionValue = document.getElementById("caption").value;
+    captionValueText = captionValue;
     console.log({captionValue});
+    draw();
 }
 
 function onChartSizeChange(){
@@ -55,12 +72,14 @@ function onChartSizeChange(){
     if(isNaN(sizeChartValue)) return;
     slidersContainer.innerHTML="";
     barsValues = [];
+    barsValuesColours = [];
     for (let index = 0; index < sizeChartValue; index++) {
         const newSliderElement = sliderConstructor(index);
         slidersContainer.appendChild(newSliderElement);
         barsValues.push(50);
+        barsValuesColours.push(defaultColours[index]);
     }
-    //use draw() somewhere here
+    draw();
 }
 
 function onSliderChange(element){
@@ -74,5 +93,7 @@ function onSliderChange(element){
     barsValues[barvalueIndex] = parseInt(sliderValue);
     console.log({barsValues});
     console.log({value: barsValues[barvalueIndex]});
-    // use draw() somewhere here
+    draw();
 }
+
+draw();
