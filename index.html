@@ -8,15 +8,38 @@
 
 <body>
     <div id="topTxt">
+
         <h1>Box Randomizer</h1>
         <p>Brian Walsh)R00221871)</p>
     </div>
+    <div>
+        <label for="caption">
+            Caption
+        </label>
+        <input type="text" id="caption" name="caption" onblur="onCaptionChange()">
+        <select id="chartSize" onchange="onChartSizeChange()">
+            <option value=2>2</option>
+            <option value=3>3</option>
+            <option value=4>4</option>
+            <option value=5>5</option>
+            <option value=6>6</option>
+            <option value=7>7</option>
+        </select>
+        <div id="slidersContainer" class="slidersContainer">
+            <div class="slideContainer">
+                <span>Value</span>
+                <input onchange="onSliderChange(this)" type="range" name="slider1" id="aRange1" min="0" max="100" value="50">
+                <div class="slideValue">
+                    <span id="aRange1Value">50%</span>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <canvas id="barBox" width="500px" height="500px"></canvas>
-    <input type="button" value="Randomize" onclick="return draw()">
+    <input type="button" value="Randomize" onclick="randomizeColors()">
 </body>
 <script src="script.js"></script>
 
 </html>
-
 <!--Coded by Brain Walsh (R00221871)-->
