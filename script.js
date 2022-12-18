@@ -17,6 +17,7 @@ let barsValuesColours = [
 ];
 
 const canvas = document.getElementById("barBox");
+const canvasImage = document.getElementById("canvasImage");
 const slidersContainer = document.getElementById("slidersContainer");
 const barBox = canvas.getContext("2d");
 let captionValueText = "";
@@ -37,10 +38,10 @@ function draw(){
         const barWidth = canvas.width / barsValues.length;
         const x = i * barWidth;
         barBox.fillStyle = barsValuesColours[i];
-        const offset = 100 - barsValues[i];
-        let rand = Math.random()*400;
         barBox.fillRect(x,500-rectHeight,barWidth,rectHeight);
     }
+    const canvasImageUrl = canvas.toDataURL();
+    canvasImage.src = canvasImageUrl;
 }
 
 /*Random colours*/
