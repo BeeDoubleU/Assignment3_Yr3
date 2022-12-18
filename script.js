@@ -97,3 +97,8 @@ function onSliderChange(element){
 }
 
 draw();
+
+function copyCanvas() {
+
+  }
+
