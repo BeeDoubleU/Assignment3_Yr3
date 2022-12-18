@@ -1,3 +1,4 @@
+/*Colours to be generated*/
 const defaultColours = [
     '#ffffff',
     '#000000',
@@ -9,6 +10,7 @@ const defaultColours = [
     '#eeeeee'
 ];
 
+/*Colours generated on start-up*/
 let barsValuesColours = [
     '#ffffff',
     '#000000'
@@ -21,8 +23,8 @@ let captionValueText = "";
 
 let barsValues = [50, 50];
 
+/*Draw boxes on canvas*/
 function draw(){
-
     barBox.clearRect(0,0,500,500);
     barBox.fillText(captionValueText, 50, 50);
     barBox.font = "30px Arial";
@@ -41,6 +43,7 @@ function draw(){
     }
 }
 
+/*Random colours*/
 function randomizeColors(){
     for (let i = 0; i < barsValuesColours.length; i++){
         const newColourIndex = Math.floor(Math.random() * (defaultColours.length - 1));
@@ -52,6 +55,7 @@ function randomizeColors(){
     draw();
 }
 
+/*Create Sliders*/
 function sliderConstructor(index){
     const container = document.createElement('div');
     container.className="slideContainer";
@@ -59,6 +63,7 @@ function sliderConstructor(index){
     return container;
 }
 
+/*Text*/
 function onCaptionChange(){
     const captionValue = document.getElementById("caption").value;
     captionValueText = captionValue;
@@ -66,6 +71,7 @@ function onCaptionChange(){
     draw();
 }
 
+/*Sliders*/
 function onChartSizeChange(){
     const sizeChartValue = parseInt(document.getElementById("chartSize").value);
     console.log({sizeChartValue});
@@ -82,6 +88,7 @@ function onChartSizeChange(){
     draw();
 }
 
+/*Change with slider*/
 function onSliderChange(element){
     const sliderValue = element.value;
     const sliderName = element.name;
@@ -98,7 +105,13 @@ function onSliderChange(element){
 
 draw();
 
-function copyCanvas() {
+/*
+function copyCanvas(barBox) {
+    let newImage = document.getElementById("barBox");
+    const newCanvas = document.getElementById("copyBox");
 
+    newCanvas.drawImage(newImage, 0, 0);
+
+    return copyBox;
   }
-
+*/
