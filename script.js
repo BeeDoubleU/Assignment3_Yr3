@@ -105,14 +105,3 @@ function onSliderChange(element){
 }
 
 draw();
-
-/*
-function copyCanvas(barBox) {
-    let newImage = document.getElementById("barBox");
-    const newCanvas = document.getElementById("copyBox");
-
-    newCanvas.drawImage(newImage, 0, 0);
-
-    return copyBox;
-  }
-*/
